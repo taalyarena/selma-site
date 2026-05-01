@@ -213,13 +213,13 @@
   .about-photo {
     position: relative;
   }
-  .about-photo-inner {
-    width: 100%; aspect-ratio: 4/5;
-    background: var(--cream);
-    border-radius: 2px;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; overflow: hidden;
-  }
+  .about-photo-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
   .about-photo-inner::after {
     content: '';
     position: absolute; bottom: -2px; right: -2px;
@@ -483,7 +483,8 @@
   </div>
   <div class="about-photo">
     <div class="about-photo-inner">
- <img src="selma_sfundo.png" alt="Foto de Selma Arenales">    </div>
+     <img src="selma_sfundo.png" alt="Foto de Selma Arenales">
+    </div>
     <div class="about-badge">
       <span class="badge-num">2003</span>
       <span class="badge-text">início da jornada</span>
