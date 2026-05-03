@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manifestadora</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C8293A;
+  --navy: #1E2D45;
+  --cream: #F5F0E8;
+  --off-white: #FAF8F5;
+  --dark: #0F1820;
+  --muted: #8A8F96;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--dark);
+  overflow-x: hidden;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+/* NAV */
+nav {
+  padding: 1rem 1.4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,248,245,0.97);
+  border-bottom: 1px solid rgba(30,45,69,0.08);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--navy);
+}
+.nav-logo span { color: var(--red); }
+.nav-cta {
+  background: var(--red); color: white;
+  padding: 0.5rem 1rem; border-radius: 2px;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  padding: 3rem 1.4rem 2.5rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '✦';
+  position: absolute; top: -1rem; right: -1rem;
+  font-size: 12rem; color: rgba(200,41,58,0.06);
+  line-height: 1; pointer-events: none;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(200,41,58,0.9); font-weight: 500; margin-bottom: 1.2rem;
+}
+.hero-tag::before { content: ''; width: 1.5rem; height: 1px; background: var(--red); }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem; font-weight: 300; line-height: 1.05;
+  color: white; margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--red); }
+.hero-sub {
+  font-size: 0.95rem; line-height: 1.75;
+  color: rgba(255,255,255,0.55); font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+/* BOOK CARD */
+.book-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 2px;
+  padding: 1.4rem;
+  margin-bottom: 2rem;
+  display: flex; align-items: center; gap: 1.2rem;
+}
+.book-spine {
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .book-spine img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+.book-spine-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.6rem; font-weight: 600;
+  color: white; letter-spacing: 0.15em; text-transform: uppercase;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  transform: rotate(180deg);
+}
+.book-info {}
+.book-label {
+  font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(200,41,58,0.8); margin-bottom: 0.3rem;
+}
+.book-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 400; color: white;
+  line-height: 1.1; margin-bottom: 0.3rem;
+}
+.book-by {
+  font-size: 0.7rem; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* STATS */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.stat {
+  padding: 0.9rem 0.6rem; text-align: center;
+  background: rgba(255,255,255,0.03);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; font-weight: 600;
+  color: white; line-height: 1; display: block;
+}
+.stat-label {
+  font-size: 0.62rem; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  margin-top: 0.25rem; line-height: 1.3;
+}
+
+/* CTA HERO */
+.hero-cta-wrap {
+  margin-top: 2rem;
+  display: flex; flex-direction: column; gap: 0.8rem;
+}
+.btn-primary {
+  display: block; width: 100%; text-align: center;
+  background: var(--red); color: white;
+  padding: 1rem; border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none;
+}
+.price-note {
+  text-align: center;
+  font-size: 0.8rem; color: rgba(255,255,255,0.35);
+}
+.price-note strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+/* STRIP */
+.strip {
+  background: var(--red);
+  padding: 0.9rem 0; overflow: hidden;
+}
+.strip-inner {
+  display: inline-flex; gap: 3rem;
+  white-space: nowrap;
+  animation: marquee 18s linear infinite;
+}
+.strip-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-style: italic; color: white;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SECTION BASE */
+.section { padding: 3rem 1.4rem; }
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); font-weight: 500; margin-bottom: 0.8rem;
+}
+.divider { width: 2rem; height: 2px; background: var(--red); margin-bottom: 1.2rem; }
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.1rem; font-weight: 300; line-height: 1.12;
+  color: var(--navy); margin-bottom: 1.2rem;
+}
+h2 em { font-style: italic; color: var(--red); }
+.body-text {
+  font-size: 0.95rem; line-height: 1.8;
+  color: #4A5568; font-weight: 300;
+  margin-bottom: 1rem;
+}
+.highlight-box {
+  background: var(--cream);
+  border-left: 3px solid var(--red);
+  padding: 1.1rem 1.2rem; margin-top: 1.4rem;
+  border-radius: 0;
+}
+.highlight-box p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-style: italic;
+  color: var(--navy); line-height: 1.5;
+}
+
+/* TOOLS */
+.tools { background: var(--navy); padding: 3rem 1.4rem; }
+.tools-header { margin-bottom: 2rem; }
+.tools-header h2 { color: white; }
+.tools-header h2 em { color: var(--red); }
+.tools-header .body-text { color: rgba(255,255,255,0.4); margin-top: 0.8rem; margin-bottom: 0; }
+.tool-card {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 1.6rem 0;
+}
+.tool-card:last-of-type { border-bottom: 1px solid rgba(255,255,255,0.07); }
+.tool-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem; font-weight: 300;
+  color: rgba(255,255,255,0.08); line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.tool-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; color: white; margin-bottom: 0.5rem;
+}
+.tool-desc {
+  font-size: 0.85rem; color: rgba(255,255,255,0.4);
+  line-height: 1.7; font-weight: 300;
+}
+.extras { margin-top: 2rem; display: flex; flex-direction: column; flex-wrap: wrap; gap: 0.6rem; }
+.extra-tag {
+  display: flex; align-items: center; gap: 0.4rem;
+  background: rgba(255,255,255,0.05);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.73rem; color: rgba(255,255,255,0.5);
+  border-radius: 2px;
+}
+.extra-tag::before {
+  content: "+";
+  color: var(--red);
+  font-weight: bold;
+}
+  
+  .plena {
+    color: var(--red);
+    font-style: italic;
+  }
+
+/* RESULTS */
+.results { padding: 3rem 1.4rem; }
+.result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; margin-top: 1.8rem; }
+.result-item {
+  background: var(--cream);
+  padding: 1.2rem; border-radius: 2px;
+  border-bottom: 2px solid var(--red);
+}
+.result-dash { width: 1.2rem; height: 2px; background: var(--red); margin-bottom: 0.6rem; }
+.result-item p { font-size: 0.83rem; color: #4A5568; line-height: 1.65; font-weight: 300; }
+
+/* QUOTE */
+.quote-section { background: var(--cream); padding: 3.5rem 1.4rem; text-align: center; }
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem; color: var(--red);
+  opacity: 0.12; line-height: 0.5;
+  display: block; margin-bottom: 1.5rem;
+}
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-style: italic; font-weight: 300;
+  color: var(--navy); line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.quote-author {
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--red);
+}
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--dark);
+  padding: 3.5rem 1.4rem;
+  text-align: center;
+}
+.cta-final h2 { color: white; font-size: 2.2rem; margin-bottom: 1rem; }
+.cta-final h2 em { color: var(--red); }
+.cta-final .body-text { color: rgba(255,255,255,0.4); font-size: 0.9rem; margin-bottom: 2rem; }
+.price-block { margin-bottom: 1.6rem; }
+.price-label-sm {
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 0.3rem;
+}
+.price-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem; font-weight: 600;
+  color: white; line-height: 1;
+}
+.cta-final .btn-primary { font-size: 0.88rem; padding: 1.1rem; }
+.cta-guarantee {
+  margin-top: 1rem;
+  font-size: 0.75rem; color: rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
+}
+
+/* FOOTER */
+footer {
+  background: var(--navy);
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  color: white; font-size: 1rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.footer-logo span { color: var(--red); }
+footer p { font-size: 0.7rem; color: rgba(255,255,255,0.25); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero > * {
+  animation: fadeUp 0.7s ease forwards; opacity: 0;
+}
+.hero > *:nth-child(1) { animation-delay: 0.1s; }
+.hero > *:nth-child(2) { animation-delay: 0.2s; }
+.hero > *:nth-child(3) { animation-delay: 0.3s; }
+.hero > *:nth-child(4) { animation-delay: 0.38s; }
+.hero > *:nth-child(5) { animation-delay: 0.45s; }
+.hero > *:nth-child(6) { animation-delay: 0.52s; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Selma <span>Arenales</span></div>
+  <a href="#cta" class="nav-cta">Quero o meu!</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Guia Prático Interativo</div>
+  <h1>Do <em>Bloqueio</em><br>ao Resultado</h1>
+  <p class="hero-sub">Você escreve, visualiza, queima carta, mas <em>nada muda</em>. <br>Não é falta de capacidade. São padrões que você nem sabe que carrega.</p>
+  <div class="book-card">
+   <div class="book-spine">
+    <img src="manif_quad.png" alt="Capa do Guia Manifestadora">
+      </div>
+    <div class="book-info">
+      <div class="book-label">Guia Digital</div>
+      <div class="book-name">Manifes­tadora</div>
+      <div class="book-by">Selma Arenales</div>
+    </div>
+  </div>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <div class="stat-label">Ferramentas terapêuticas</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">3</span>
+      <div class="stat-label">Listas de Padrões</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <div class="stat-label">Objetivos possíveis</div>
+    </div>
+  </div>
+  <div class="hero-cta-wrap">
+    <a href="#cta" class="btn-primary">Começar a manifestar</a>
+    <p class="price-note">Acesso imediato por <strong>R$43,00</strong></p>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span class="strip-text">Ho'oponopono · Técnica 3×6×9 · Vision Board com Feng Shui · Crenças limitantes · Limpeza energética</span>
+    <span class="strip-text">Ho'oponopono · Técnica 3×6×9 · Vision Board com Feng Shui · Crenças limitantes · Limpeza energética</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-label">A dúvida é: <em>por que não funciona comigo?</em> </div>
+  <div class="divider"></div>
+  <h2>Não é falta<br>de <em>capacidade</em>.</h2>
+  <p class="body-text">Você vê outras pessoas manifestando viagens, carros, relacionamentos, apartamentos. Mas quando é sua vez, quase nada muda. Ou vem com <em> timming </em> ruim.</p>
+  <p class="body-text">É exatamente isso que os padrões de pensamentos fazem: atrapalham e bloquiam. Padrões que trabalham contra tudo que você pede.</p>
+  <div class="highlight-box">
+    <p><em>"A boa notícia:</em> você pode limpá-los. Sozinha. No seu tempo."</p>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="tools-header">
+    <div class="section-label" style="color: rgba(200,41,58,0.8);">3 Ferramentas Poderosas</div>
+    <div class="divider"></div>
+    <h2>Técnicas <em>terapêuticas</em><br>que funcionam<br>de verdade</h2>
+    <p class="body-text">Você tem a faca e o queijo na mão, e esse guia, é a tábua.</p>
+  </div>
+  <div class="tool-card">
+    <div class="tool-num">01</div>
+    <div class="tool-name">Ho'oponopono</div>
+    <p class="tool-desc">Um processo ancestral de perdão e cura interior. E mudança <em> verdadeira </em></p>
+  </div>
+  <div class="tool-card">
+    <div class="tool-num">02</div>
+    <div class="tool-name">Técnica 3×6×9</div>
+    <p class="tool-desc">Reprograma sua mente com a frequência dos seus próprios pensamentos de forma consistente e diária.</p>
+  </div>
+  <div class="tool-card">
+    <div class="tool-num">03</div>
+    <div class="tool-name">Vision Board com Feng Shui</div>
+    <p class="tool-desc">Direciona suas manifestações com intenção, ampliando o potencial energético do que você vai manifestar.</p>
+  </div>
+  <div class="extras">
+    <div class="extra-tag">Listas de crenças limitantes</div>
+    <div class="extra-tag">Espaços para escrever</div>
+    <div class="extra-tag">Práticas de gratidão</div>
+    <div class="extra-tag">Limpeza energética</div>
+  </div>
+</section>
+
+<section class="results">
+  <div class="section-label">O que vai ser seu</div>
+  <div class="divider"></div>
+  <h2>De sonhadora<br>a <em>Manifestadora</em><br><span class="plena"> plena</span>.</h2>
+  <p class="body-text">Além de manifestar sua lista, você sai com ferramentas práticas para usar no dia a dia e em outras questões — <em>para o resto da vida</em>.</p>
+  <div class="result-grid">
+    <div class="result-item">
+      <div class="result-dash"></div>
+      <p>Saber o que quer manifestar de verdade</p>
+    </div>
+    <div class="result-item">
+      <div class="result-dash"></div>
+      <p>Se livrar das crenças que sabotavam sua prosperidade</p>
+    </div>
+    <div class="result-item">
+      <div class="result-dash"></div>
+      <p>Ferramentas práticas para qualquer objetivo</p>
+    </div>
+    <div class="result-item">
+      <div class="result-dash"></div>
+      <p>Se tornar a mulher que alcançou a vida que sempre foi sua</p>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <span class="quote-mark">"</span>
+  <p class="quote-text">Você já tem tudo que precisa. Sempre teve. Esse guia é o mapa.</p>
+  <div class="quote-author">Selma Arenales · Professora de ThetaHealing</div>
+</section>
+
+<section class="cta-final" id="cta">
+  <div class="section-label" style="color: rgba(200,41,58,0.7); margin-bottom: 1rem;">Acesso imediato</div>
+  <h2>Sua realidade pode<br>começar a mudar<br><em>hoje</em>.</h2>
+  <p class="body-text">Um guia prático, interativo e completo. Para quem quer resultados concretos e reais.</p>
+  <div class="price-block">
+    <div class="price-label-sm">Investimento único</div>
+    <div class="price-big">R$ 43,00</div>
+  </div>
+  <a href="#" class="btn-primary">Quero a Manifestadora agora</a>
+  <p class="cta-guarantee">Acesso imediato após o pagamento · Guia digital interativo</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Selma <span>Arenales</span></div>
+  <p>© 2025 Selma Arenales · Todos os direitos reservados</p>
+</footer>
+
+</body>
+</html>
