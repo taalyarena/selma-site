@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DNA Básico ThetaHealing® — Selma Arenales</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --cream-dark: #EDE5D5;
+    --gold: #B8924A;
+    --gold-light: #D4AA6A;
+    --gold-pale: #F0E4CC;
+    --ink: #1A1410;
+    --ink-mid: #3D3028;
+    --ink-soft: #6B5D50;
+    --white: #FDFAF5;
+    --accent: #7A4F2D;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background-color: var(--ink);
+    background-image: url('silhueta_ver.png');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      background-image: url('silhueta_hor.png');
+      background-position: left center;
+    }
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 32px;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+
+  .hero-subtitle-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 32px 0 48px;
+  }
+
+  .hero-line { flex: 1; height: 1px; background: rgba(184,146,74,0.3); max-width: 80px; }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 300;
+    color: rgba(253,250,245,0.65);
+    font-style: italic;
+    max-width: 560px;
+    line-height: 1.5;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 18px 48px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .hero-badges {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 32px 24px;
+    border-top: 1px solid rgba(184,146,74,0.15);
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(253,250,245,0.5);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+  /* ─── SECTIONS ─── */
+  section { position: relative; }
+  .section-inner { max-width: 900px; margin: 0 auto; padding: 100px 24px; }
+
+  /* ─── HOOK ─── */
+  .hook { background: var(--white); }
+
+  .hook-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 300;
+    line-height: 1.45;
+    color: var(--ink);
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 64px;
+  }
+  .hook-text strong { font-weight: 600; color: var(--accent); }
+  .hook-text em { font-style: italic; }
+
+  .hook-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--cream-dark);
+    border: 1px solid var(--cream-dark);
+  }
+
+  .hook-example { background: var(--white); padding: 28px 24px; }
+
+  .hook-example-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .hook-example-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.5;
+  }
+
+  /* ─── PULL QUOTE ─── */
+  .pullquote { background: var(--ink); }
+
+  .pullquote .section-inner {
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pullquote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4.5vw, 52px);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--white);
+    max-width: 780px;
+  }
+
+  .pullquote-text em { font-style: italic; color: var(--gold-light); }
+  .pullquote-text strong { font-weight: 400; color: var(--white); }
+
+  .pullquote-line {
+    width: 40px;
+    height: 1px;
+    background: rgba(184,146,74,0.4);
+    margin: 32px auto 0;
+  }
+
+  /* ─── STORY ─── */
+  .story { background: var(--cream); }
+
+  .story-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .story-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 40px;
+    max-width: 700px;
+  }
+  .story-heading em { font-style: italic; color: var(--accent); }
+
+  .story-body { font-size: 16px; line-height: 1.85; color: var(--ink-soft); max-width: 640px; }
+  .story-body p + p { margin-top: 20px; }
+  .story-body strong { color: var(--ink-mid); font-weight: 500; }
+  .story-body em { font-style: italic; }
+
+  /* ─── REAL STORIES ─── */
+  .stories { background: var(--ink); }
+
+  .stories-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .stories-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 64px;
+    line-height: 1.2;
+  }
+  .stories-heading em { font-style: italic; color: var(--gold-light); }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    background: rgba(184,146,74,0.12);
+  }
+
+  .story-card { background: var(--ink-mid); padding: 32px 28px; }
+
+  .story-card-scene {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .story-card-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(253,250,245,0.9);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .story-card-detail {
+    font-size: 13px;
+    color: rgba(253,250,245,0.4);
+    line-height: 1.6;
+  }
+
+  /* ─── FOR WHO ─── */
+  .forwho { background: var(--cream); }
+
+  .forwho-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 680px) { .forwho-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .forwho-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .forwho-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 32px;
+  }
+  .forwho-heading em { font-style: italic; color: var(--accent); }
+
+  .forwho-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+
+  .forwho-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.55;
+  }
+  .forwho-list-item::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 9px;
+  }
+
+  .forwho-not-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 24px;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--white); }
+
+  .testimonials-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .testimonials-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 64px;
+    line-height: 1.2;
+  }
+  .testimonials-heading em { font-style: italic; color: var(--accent); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    background: var(--cream-dark);
+  }
+
+  .testimonial-card { background: var(--white); padding: 32px 28px; }
+
+  .testimonial-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .testimonial-text::before { content: '\201C'; color: var(--gold); }
+  .testimonial-text::after { content: '\201D'; color: var(--gold); }
+
+  .testimonial-name {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .testimonial-role { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* ─── PRICE ─── */
+  .price { background: var(--cream-dark); }
+
+  .price-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .price-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .price-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+  .price-heading em { font-style: italic; color: var(--accent); }
+
+  .price-box {
+    background: var(--white);
+    border: 1px solid var(--gold-pale);
+    padding: 52px 40px 40px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .price-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 7px 20px;
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  .price-context {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .price-inscription {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  .price-inscription span { font-weight: 500; color: var(--accent); }
+
+  .price-divider { width: 40px; height: 1px; background: var(--gold-pale); margin: 24px auto; }
+
+  .price-main {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  .price-main-label { font-size: 13px; color: var(--ink-soft); margin-bottom: 12px; }
+
+  .price-discount {
+    display: inline-block;
+    background: var(--gold-pale);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    margin-bottom: 32px;
+  }
+
+  .price-payment {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+
+  .price-cta {
+    display: block;
+    width: 100%;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 40px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .price-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+  .price-note { font-size: 12px; color: var(--ink-soft); margin-top: 16px; line-height: 1.7; }
+
+  /* ─── FAQ ─── */
+  .faq { background: var(--white); }
+
+  .faq-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .faq-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300;
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .faq-list { display: flex; flex-direction: column; max-width: 680px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--cream-dark); }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .faq-icon {
+    width: 20px; height: 20px;
+    border: 1px solid var(--gold-pale);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--gold);
+    transition: transform 0.2s;
+  }
+
+  .faq-answer {
+    display: none;
+    padding-bottom: 20px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .faq-item.open .faq-answer { display: block; }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta { background: var(--ink); text-align: center; }
+  .final-cta .section-inner { padding: 120px 24px; }
+
+  .final-cta-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .final-cta-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .final-cta-heading em { font-style: italic; color: var(--gold-light); }
+
+  .final-cta-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(253,250,245,0.45);
+    margin-bottom: 48px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(184,146,74,0.1);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(253,250,245,0.2);
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.8s ease both; }
+  .hero-title { animation: fadeUp 0.8s 0.15s ease both; }
+  .hero-subtitle-block { animation: fadeUp 0.8s 0.3s ease both; }
+  .hero-cta { animation: fadeUp 0.8s 0.45s ease both; }
+
+  @media (max-width: 600px) {
+    .hero-badges { gap: 12px; }
+    .price-box { padding: 48px 20px 32px; }
+    .price-main { font-size: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Formação Oficial ThetaHealing®</p>
+    <h1 class="hero-title">DNA <em>Básico</em></h1>
+    <div class="hero-subtitle-block">
+      <div class="hero-line"></div>
+      <p class="hero-subtitle">Aprenda a mudar na raiz o que você não vê na superfície</p>
+      <div class="hero-line"></div>
+    </div>
+    <a href="#inscricao" class="hero-cta">Garantir minha vaga</a>
+  </div>
+
+  <div class="hero-badges">
+    <div class="badge"><div class="badge-dot"></div>3 dias presenciais</div>
+    <div class="badge"><div class="badge-dot"></div>Certificação internacional</div>
+    <div class="badge"><div class="badge-dot"></div>Ao vivo</div>
+    <div class="badge"><div class="badge-dot"></div>Técnica reconhecida mundialmente</div>
+  </div>
+</section>
+
+<!-- HOOK -->
+<section class="hook">
+  <div class="section-inner">
+    <p class="hook-text">
+      Já percebeu que você sabe <strong>exatamente o que precisa fazer</strong>… e ainda assim, nada muda?<br><br>
+      Você sabe que não é falta de <em>querer</em>.<br>Sabe o que tem que fazer... mas algo sempre dá errado.
+    </p>
+    <div class="hook-examples">
+      <div class="hook-example">
+        <p class="hook-example-label">Relacionamento</p>
+        <p class="hook-example-text">Você sempre escolhe pessoas emocionalmente indisponíveis…</p>
+      </div>
+      <div class="hook-example">
+        <p class="hook-example-label">Dinheiro</p>
+        <p class="hook-example-text">Você se autossabota financeiramente sem querer...</p>
+      </div>
+      <div class="hook-example">
+        <p class="hook-example-label">Saúde</p>
+        <p class="hook-example-text">O corpo responde ao que a mente reforça. Sempre.</p>
+      </div>
+      <div class="hook-example">
+        <p class="hook-example-label">Carreira</p>
+        <p class="hook-example-text">Você quer o sucesso, mas não acredita que está pronta para a responsabilidade que vem junto…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullquote">
+  <div class="section-inner">
+    <p class="pullquote-text">
+      Você sabe que não é falta de <em>querer</em>.<br>
+      Você sabe o que tem que fazer...<br>
+      <em>mas algo sempre dá errado!</em>
+    </p>
+    <div class="pullquote-line"></div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="section-inner">
+    <p class="story-label">A sua virada</p>
+    <h2 class="story-heading">O que muda quando você encontra <em>a raiz</em></h2>
+    <div class="story-body">
+      <p>Existe uma diferença enorme entre entender um padrão e <strong>realmente mudar</strong> ele. A força de vontade existe, mas parece que não é suficiente. Parece que sempre tem algo conspirando contra. E você nunca consegue mudar, nunca consegue <em>fazer</em>. E isso <strong>não é culpa sua.</strong></p>
+      <p>O ThetaHealing® trabalha diferente. Você não tenta convencer sua mente consciente de nada. Você <strong>vai diretamente ao nível onde a crença foi formada</strong> — e resolve ali.</p>
+      <p>Crenças herdadas da genética. Traumas das suas experiências mais antigas. Memórias que às vezes você nem lembra — e o seu corpo ainda carrega como verdades <em>absolutas</em>. <strong>É possível liberar tudo isso.</strong></p>
+      <p>Não como metáfora. Mas o passo a passo. Que você aprende para si. Como uma ferramenta terapêutica poderosa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REAL STORIES -->
+<section class="stories">
+  <div class="section-inner">
+    <p class="stories-label">Exemplos reais de alunas</p>
+    <h2 class="stories-heading">Que você vai <em>aprender a fazer</em> também</h2>
+    <div class="stories-grid">
+      <div class="story-card">
+        <p class="story-card-scene">Leitura Intuitiva</p>
+        <p class="story-card-text">Perceber que a pessoa não está bem emocionalmente — que ela vive um turbilhão interno.</p>
+        <p class="story-card-detail">Sem palavras. Sem contexto. Apenas se conectando com a energia dela.</p>
+      </div>
+      <div class="story-card">
+        <p class="story-card-scene">Leitura de Relacionamento</p>
+        <p class="story-card-text">Perceber se o cara realmente quer algo sério ou se está emocionalmente indisponível.</p>
+        <p class="story-card-detail">Informação que poupa meses de heartbreak e desilusão.</p>
+      </div>
+      <div class="story-card">
+        <p class="story-card-scene">Análise de Futuro</p>
+        <p class="story-card-text">Entender o que os padrões atuais estão construindo. Perceber se ainda tem algo a aprender antes que os obstáculos sumam.</p>
+        <p class="story-card-detail">Não como resignação. Como sabedoria, estratégia e timing.</p>
+      </div>
+      <div class="story-card">
+        <p class="story-card-scene">Proteção Energética</p>
+        <p class="story-card-text">Identificar o que está pesado num ambiente ou objeto. Sentir a energia antes de se comprometer. E saber como agir.</p>
+        <p class="story-card-detail">No lar, no trabalho, em reuniões importantes — ou num date.</p>
+      </div>
+      <div class="story-card">
+        <p class="story-card-scene">Conexão com o Natural</p>
+        <p class="story-card-text">Perceber a vibração de um cachorro, planta, cristal.</p>
+        <p class="story-card-detail">Linguagem que vai além das palavras.</p>
+      </div>
+      <div class="story-card">
+        <p class="story-card-scene">Cura Emocional</p>
+        <p class="story-card-text">Identificar por que você faz o que faz — mesmo quando não quer.</p>
+        <p class="story-card-detail">E como mudar isso na raiz. Em você mesma.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="forwho">
+  <div class="section-inner">
+    <div class="forwho-grid">
+      <div>
+        <p class="forwho-label">Para quem é</p>
+        <h2 class="forwho-heading">Você <em>está pronta</em> se...</h2>
+        <ul class="forwho-list">
+          <li class="forwho-list-item">Sente que entende seus padrões, mas não consegue mudá-los sozinha</li>
+          <li class="forwho-list-item">Quer uma ferramenta prática e poderosa de cura emocional para o dia a dia</li>
+          <li class="forwho-list-item">Tem curiosidade em desenvolver intuição e leitura energética</li>
+          <li class="forwho-list-item">Quer ampliar os resultados de outras práticas que já faz</li>
+          <li class="forwho-list-item">Está aberta à ideia de que existe algo maior co-criando com você</li>
+          <li class="forwho-list-item">Quer a certificação internacional em ThetaHealing®</li>
+        </ul>
+      </div>
+      <div>
+        <p class="forwho-not-heading">Este curso <strong>não</strong> é para você se...</p>
+        <ul class="forwho-list">
+          <li class="forwho-list-item">Está buscando a pílula mágica sem comprometimento real com a própria transformação</li>
+          <li class="forwho-list-item">Acha que manifestação não requer ações reais</li>
+          <li class="forwho-list-item">Não acredita em algo maior</li>
+          <li class="forwho-list-item">Não tem disponibilidade para os três dias completos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner">
+    <p class="testimonials-label">Quem já fez</p>
+    <h2 class="testimonials-heading">O que mudou <em>de verdade</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">Fiz o DNA Básico sem saber muito o que esperar. Saí com uma ferramenta que uso todo dia — em mim, nos filhos, em casa.</p>
+        <p class="testimonial-name">Sara E.</p>
+        <p class="testimonial-role">Esteticista</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Eu entendia todos os meus padrões mais que ninguém, e queria mudar de verdade — mas nunca dava certo. Hoje foi a primeira vez que consegui. Gratidão infinita, Selma!</p>
+        <p class="testimonial-name">Fernanda R.</p>
+        <p class="testimonial-role">Arquiteta</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Integrei ao meu trabalho como nutricionista e os resultados dos pacientes melhoraram muito. A técnica funciona junto com qualquer outra abordagem.</p>
+        <p class="testimonial-name">Mariana T.</p>
+        <p class="testimonial-role">Nutricionista funcional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price" id="inscricao">
+  <div class="price-inner">
+    <p class="price-label">Investimento</p>
+    <h2 class="price-heading">Seu <em>primeiro passo</em> no ThetaHealing®</h2>
+    <div class="price-box">
+      <span class="price-tag">Para quem fez o Café com Terapia</span>
+      <p class="price-context">Toda essa transformação de vida —<br>de <s>R$ 1.500</s> por:</p>
+      <p class="price-inscription">Taxa de inscrição de <span>R$ 270</span></p>
+      <div class="price-divider"></div>
+      <p class="price-context">Valor do curso:</p>
+      <p class="price-main">R$ 997</p>
+      <p class="price-main-label">à vista ou parcelado</p>
+      <span class="price-discount">15% OFF</span>
+      <a href="*link pagamento aqui" class="price-cta">Quero garantir minha vaga</a>
+    </div>
+    <p class="price-note">
+      Ao confirmar, você receberá todas as informações.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <p class="faq-label">Dúvidas</p>
+    <h2 class="faq-heading">Perguntas frequentes</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Preciso ter algum conhecimento anterior?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Não. O DNA Básico é o ponto de partida — o curso fundamental. A única exigência é estar aberta à ideia de se conectar com algo maior. Sem afiliação religiosa e sem julgamento de crença.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso usar a técnica em outras pessoas após o curso?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sim. Ao concluir o DNA Básico, você recebe a certificação internacional do ThetaHealing Institute of Knowledge®, que te habilita a conduzir sessões e atuar como terapeuta praticante certificada.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Funciona junto com outras práticas terapêuticas?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sim, e é um dos grandes diferenciais. A técnica é complementar — ela amplifica os resultados de psicoterapia, nutrição, ayurveda, constelação familiar, entre outros. Muitas alunas integram ao trabalho que já têm.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Existe versão online?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Sim. O DNA Básico pode ser feito presencialmente ou online ao vivo. Ambos têm a mesma carga horária, o mesmo conteúdo completo e geram a mesma certificação internacional.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          O ThetaHealing® tem afiliação religiosa?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Nenhuma. É uma técnica de meditação e reprogramação de crenças que trabalha com o conceito de "Fonte Criadora de Tudo o Que É" — o que você chama de Deus, Universo ou Energia Superior é escolha sua. A técnica respeita todas as tradições.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Como funciona o pagamento?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">Você pode pagar à vista ou parcelar no cartão via Pix, Mercado Pago, PayPal ou Eduzz. Ao confirmar a inscrição, você receberá todas as informações de pagamento diretamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="section-inner">
+    <p class="final-cta-eyebrow">Uma decisão que muda tudo</p>
+    <h2 class="final-cta-heading">Pronta para ir<br><em>até a raiz?</em></h2>
+    <p class="final-cta-sub">Sua formação em ThetaHealing® começa aqui.</p>
+    <a href="#inscricao" class="hero-cta">Garantir minha vaga</a>
+  </div>
+</section>
+
+<footer>
+  © Selma Arenales — Instrutora Certificada ThetaHealing® · ThetaHealing® é marca registrada do ThetaHealing Institute of Knowledge®
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
