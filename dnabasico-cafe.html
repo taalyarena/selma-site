@@ -55,27 +55,28 @@
   .hero-nav {
     position: relative;
     z-index: 10;
-    padding: 24px 32px;
+    padding: 32px 32px 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   .hero-logo {
-    height: 48px;
+    height: 76px;
     width: auto;
     display: block;
   }
 
   @media (max-width: 600px) {
-    .hero-logo { height: 36px; }
-    .hero-nav { padding: 20px 20px; }
+    .hero-logo { height: 58px; }
+    .hero-nav { padding: 28px 20px 6px; }
   }
 
   .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    
     text-align: center;
     padding: 40px 24px 80px;
     position: relative;
@@ -141,7 +142,7 @@
   .hero-badges {
     display: flex;
     gap: 24px;
-    justify-content: center;
+    
     flex-wrap: wrap;
     padding: 32px 24px;
     border-top: 1px solid rgba(184,146,74,0.15);
@@ -603,7 +604,7 @@
     border-radius: 50%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    
     flex-shrink: 0;
     font-size: 14px;
     color: var(--gold);
@@ -664,7 +665,7 @@
   }
 
   .footer-logo {
-    height: 36px;
+    height: 58px;
     width: auto;
     display: block;
     opacity: 0.85;
