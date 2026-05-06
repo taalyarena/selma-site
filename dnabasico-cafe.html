@@ -39,7 +39,7 @@
     background-position: left center;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr auto;
     position: relative;
     overflow: hidden;
   }
@@ -51,13 +51,33 @@
     }
   }
 
+  /* ─── HERO NAV ─── */
+  .hero-nav {
+    position: relative;
+    z-index: 10;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-logo {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 600px) {
+    .hero-logo { height: 36px; }
+    .hero-nav { padding: 20px 20px; }
+  }
+
   .hero-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 120px 24px 80px;
+    padding: 40px 24px 80px;
     position: relative;
     z-index: 2;
   }
@@ -208,7 +228,6 @@
   }
 
   .pullquote-text em { font-style: italic; color: var(--gold-light); }
-  .pullquote-text strong { font-weight: 400; color: var(--white); }
 
   .pullquote-line {
     width: 40px;
@@ -637,11 +656,26 @@
   footer {
     background: var(--ink);
     border-top: 1px solid rgba(184,146,74,0.1);
-    padding: 32px 24px;
-    text-align: center;
-    font-size: 12px;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .footer-logo {
+    height: 36px;
+    width: auto;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .footer-copy {
+    font-size: 11px;
     color: rgba(253,250,245,0.2);
     letter-spacing: 0.05em;
+    text-align: center;
+    line-height: 1.6;
   }
 
   /* ─── ANIMATIONS ─── */
@@ -665,6 +699,10 @@
 
 <!-- HERO -->
 <section class="hero">
+
+  <nav class="hero-nav">
+    <img src="/images/logo_degrade_sqr.png" alt="Selma Arenales" class="hero-logo">
+  </nav>
 
   <div class="hero-inner">
     <p class="hero-eyebrow">Formação Oficial ThetaHealing®</p>
@@ -847,11 +885,9 @@
       <p class="price-main">R$ 997</p>
       <p class="price-main-label">à vista ou parcelado</p>
       <span class="price-discount">15% OFF</span>
-      <a href="*link pagamento aqui" class="price-cta">Quero garantir minha vaga</a>
+      <a href="*link pagamento aqui*" class="price-cta">Quero garantir minha vaga</a>
     </div>
-    <p class="price-note">
-      Ao confirmar, você receberá todas as informações.
-    </p>
+    <p class="price-note">Ao confirmar, você receberá todas as informações.</p>
   </div>
 </section>
 
@@ -918,7 +954,11 @@
 </section>
 
 <footer>
-  © Selma Arenales — Instrutora Certificada ThetaHealing® · ThetaHealing® é marca registrada do ThetaHealing Institute of Knowledge®
+  <img src="/images/logo_degrade_rct.png" alt="Selma Arenales" class="footer-logo">
+  <p class="footer-copy">
+    © Selma Arenales — Instrutora Certificada ThetaHealing®<br>
+    ThetaHealing® é marca registrada do ThetaHealing Institute of Knowledge®
+  </p>
 </footer>
 
 <script>
