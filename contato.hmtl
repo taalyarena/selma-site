@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — Selma Arenales</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #C8293A;
+  --navy: #1E2D45;
+  --cream: #F5F0E8;
+  --off-white: #FAF8F5;
+  --dark: #0F1820;
+  --muted: #8A8F96;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--off-white); color: var(--dark); overflow-x: hidden; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.2rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(250,248,245,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(30,45,69,0.08);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.nav-logo span { color: var(--red); }
+
+.page-hero {
+  background: var(--navy);
+  padding: 8rem 4rem 4rem;
+  text-align: center;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 300; color: white; line-height: 1.05;
+}
+.page-hero h1 em { font-style: italic; color: var(--red); }
+
+.main {
+  max-width: 680px; margin: 0 auto;
+  padding: 4rem 4rem;
+}
+
+.section-label {
+  font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--red); font-weight: 500; margin-bottom: 0.8rem;
+}
+.divider { width: 2.5rem; height: 2px; background: var(--red); margin-bottom: 1.8rem; }
+
+.redes-grid { display: flex; flex-direction: column; }
+.rede-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(30,45,69,0.08);
+  text-decoration: none;
+  transition: padding-left 0.2s;
+}
+.rede-item:first-child { border-top: 1px solid rgba(30,45,69,0.08); }
+.rede-item:hover { padding-left: 0.5rem; }
+.rede-left { display: flex; align-items: center; gap: 1rem; }
+.rede-icon {
+  width: 36px; height: 36px;
+  background: var(--navy); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; color: white; font-weight: 500;
+  letter-spacing: 0.05em; flex-shrink: 0;
+  transition: background 0.2s;
+}
+.rede-item:hover .rede-icon { background: var(--red); }
+.rede-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; color: var(--navy);
+}
+.rede-handle { font-size: 0.75rem; color: var(--muted); }
+.rede-arrow { font-size: 0.9rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
+.rede-item:hover .rede-arrow { color: var(--red); transform: translateX(4px); }
+
+.contato-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-top: 1.8rem; margin-bottom: 3rem;
+}
+.contato-card {
+  background: var(--cream); padding: 1.4rem;
+  border-radius: 2px; border-bottom: 3px solid transparent;
+  transition: border-color 0.2s; text-decoration: none; display: block;
+}
+.contato-card:hover { border-bottom-color: var(--red); }
+.contato-card-label {
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.4rem;
+}
+.contato-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: var(--navy);
+}
+
+.parcerias {
+  background: var(--dark);
+  padding: 4rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.parcerias::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,41,58,0.1), transparent 65%);
+  pointer-events: none;
+}
+.parcerias-inner { position: relative; z-index: 1; max-width: 500px; margin: 0 auto; }
+.parcerias h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 300; color: white; margin-bottom: 0.8rem; line-height: 1.15;
+}
+.parcerias h2 em { font-style: italic; color: var(--red); }
+.parcerias p { font-size: 0.88rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-bottom: 1.8rem; }
+.btn-primary {
+  background: var(--red); color: white;
+  padding: 0.9rem 2rem; border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; display: inline-block;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+
+footer {
+  background: var(--navy);
+  padding: 2rem 4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  color: white; font-size: 1rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.footer-logo span { color: var(--red); }
+footer p { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>S</span>elma Arenales</a>
+</nav>
+
+<section class="page-hero">
+  <h1>Vamos <em>conversar?</em></h1>
+</section>
+
+<div class="main">
+  <div class="section-label">Redes sociais</div>
+  <div class="divider"></div>
+  <div class="redes-grid">
+    <a href="https://youtube.com/@selmaarenales" target="_blank" class="rede-item">
+      <div class="rede-left">
+        <div class="rede-icon">YT</div>
+        <div>
+          <div class="rede-name">YouTube</div>
+          <div class="rede-handle">@selmaarenales</div>
+        </div>
+      </div>
+      <div class="rede-arrow">→</div>
+    </a>
+    <a href="https://instagram.com/selmaarenales" target="_blank" class="rede-item">
+      <div class="rede-left">
+        <div class="rede-icon">IG</div>
+        <div>
+          <div class="rede-name">Instagram</div>
+          <div class="rede-handle">@selmaarenales</div>
+        </div>
+      </div>
+      <div class="rede-arrow">→</div>
+    </a>
+    <a href="https://tiktok.com/@selmaarenales" target="_blank" class="rede-item">
+      <div class="rede-left">
+        <div class="rede-icon">TK</div>
+        <div>
+          <div class="rede-name">TikTok</div>
+          <div class="rede-handle">@selmaarenales</div>
+        </div>
+      </div>
+      <div class="rede-arrow">→</div>
+    </a>
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <div class="section-label">Contato direto</div>
+    <div class="divider"></div>
+    <div class="contato-grid">
+      <a href="mailto:contato@selmaarenales.com" class="contato-card">
+        <div class="contato-card-label">E-mail</div>
+        <div class="contato-card-value">contato@selmaarenales.com</div>
+      </a>
+      <a href="https://wa.me/5511913272396" target="_blank" class="contato-card">
+        <div class="contato-card-label">WhatsApp </div>
+        <div class="contato-card-value">(11) 91327-2396</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="parcerias">
+  <div class="parcerias-inner">
+    <div class="section-label" style="color: rgba(200,41,58,0.8); margin-bottom: 1rem;">Parcerias</div>
+    <h2>Vamos construir<br>algo <em>juntas?</em></h2>
+    <p>Tem um projeto ou ideia que acha que faz sentido com o que a fazemos? Me envie um e-mail e agendamos uma conversa!</p>
+    <a href="mailto:selma@email.com" class="btn-primary">Enviar e-mail</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>S</span>elma Arenales</div>
+  <p>© 2026 · ThetaHealing® é marca registrada da THInk, Inc.</p>
+</footer>
+
+</body>
+</html>
