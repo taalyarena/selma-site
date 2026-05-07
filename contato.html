@@ -147,6 +147,54 @@ footer {
 }
 .footer-logo span { color: var(--red); }
 footer p { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem 1.5rem;
+    justify-content: center;
+  }
+
+  .page-hero {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .main {
+    max-width: 100%;
+    padding: 3rem 1.5rem;
+  }
+
+  .contato-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contato-card {
+    width: 100%;
+    text-align: center;
+    padding: 1.4rem 1rem;
+  }
+
+  .contato-card-value {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+
+  .parcerias {
+    padding: 4rem 1.5rem;
+  }
+
+  .parcerias-inner {
+    max-width: 100%;
+  }
+
+  footer {
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+  }
+}
+  
 </style>
 </head>
 <body>
