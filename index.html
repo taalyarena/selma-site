@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Arenales</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --red: #C8293A;
@@ -26,7 +27,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     padding: 1rem 1.5rem;
@@ -35,50 +35,56 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(30,45,69,0.08);
   }
+
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.1rem; font-weight: 400;
     letter-spacing: 0.12em; color: var(--navy);
     text-transform: uppercase;
+    text-decoration: none;
   }
+
   .nav-logo span { color: var(--red); }
 
-  /* Hamburger */
   .nav-toggle {
     display: none;
     flex-direction: column; gap: 5px;
     cursor: pointer; background: none; border: none; padding: 4px;
   }
+
   .nav-toggle span {
     display: block; width: 22px; height: 2px;
     background: var(--navy); border-radius: 2px;
     transition: all 0.3s ease;
   }
+
   .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2) { opacity: 0; }
   .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Desktop nav links */
   .nav-links {
     display: flex; align-items: center; gap: 2.5rem;
     list-style: none;
   }
+
   .nav-links a {
     text-decoration: none; color: var(--navy);
     font-size: 0.82rem; letter-spacing: 0.08em;
     text-transform: uppercase; font-weight: 500;
     opacity: 0.7; transition: opacity 0.2s;
   }
+
   .nav-links a:hover { opacity: 1; }
+
   .nav-cta {
     background: var(--red); color: white !important;
     padding: 0.55rem 1.2rem; border-radius: 2px;
     opacity: 1 !important; font-weight: 500 !important;
     transition: background 0.2s !important;
   }
+
   .nav-cta:hover { background: var(--navy) !important; }
 
-  /* Mobile menu overlay */
   .nav-overlay {
     display: none;
     position: fixed; inset: 0; z-index: 99;
@@ -86,7 +92,9 @@
     flex-direction: column; align-items: center; justify-content: center;
     gap: 2.5rem;
   }
+
   .nav-overlay.open { display: flex; }
+
   .nav-overlay a {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.2rem; font-weight: 300;
@@ -95,7 +103,9 @@
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s, color 0.2s;
   }
+
   .nav-overlay a:hover { color: var(--red); border-color: var(--red); }
+
   .nav-overlay .nav-cta-overlay {
     background: var(--red); color: white !important;
     padding: 0.9rem 2.5rem; border-radius: 2px;
@@ -105,7 +115,6 @@
     border-bottom: none !important;
   }
 
-  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: grid;
@@ -115,6 +124,7 @@
     position: relative;
     overflow: hidden;
   }
+
   .hero::before {
     content: '';
     position: absolute; top: 0; right: 0;
@@ -122,28 +132,36 @@
     background: var(--navy);
     z-index: 0;
   }
+
   .hero-left { position: relative; z-index: 1; padding-right: 4rem; }
+
   .hero-tag {
     display: inline-flex; align-items: center; gap: 0.6rem;
     font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     color: var(--red); font-weight: 500; margin-bottom: 1.8rem;
   }
+
   .hero-tag::before {
     content: ''; width: 2rem; height: 1px; background: var(--red);
   }
+
   h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.6rem, 5vw, 5rem);
     font-weight: 300; line-height: 1.05;
     color: var(--navy); margin-bottom: 1.8rem;
   }
+
   h1 em { font-style: italic; color: var(--red); }
+
   .hero-sub {
     font-size: 1rem; line-height: 1.75;
     color: #4A5568; max-width: 42ch;
     margin-bottom: 2.5rem; font-weight: 300;
   }
+
   .hero-actions { display: flex; gap: 1rem; align-items: center; }
+
   .btn-primary {
     background: var(--red); color: white;
     padding: 1rem 2rem; border: none; border-radius: 2px;
@@ -154,89 +172,97 @@
     transition: background 0.2s, transform 0.2s;
     display: inline-block;
   }
+
   .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
-  .btn-ghost {
-    color: var(--navy); text-decoration: none;
-    font-size: 0.85rem; font-weight: 500;
-    letter-spacing: 0.06em; text-transform: uppercase;
-    border-bottom: 1px solid var(--navy);
-    padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
-  }
-  .btn-ghost:hover { color: var(--red); border-color: var(--red); }
 
   .hero-right {
     position: relative; z-index: 1;
     padding-left: 4rem;
     display: flex; flex-direction: column; justify-content: center;
   }
+
   .hero-photo-frame {
     position: relative; width: 100%; max-width: 460px;
     display: flex; align-items: flex-end; justify-content: center;
   }
+
   .hero-photo-frame img {
     width: 100%; height: auto; object-fit: contain;
     filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
   }
+
   .hero-stat-strip { display: flex; gap: 2rem; margin-top: 2rem; }
+
   .stat { flex: 1; }
+
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.2rem; font-weight: 600;
     color: white; line-height: 1;
   }
+
   .stat-label {
     font-size: 0.72rem; color: rgba(255,255,255,0.5);
     letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.3rem;
   }
 
-  /* ── FAIXA ANIMADA ── */
   .about-strip {
     background: var(--red);
     padding: 1.1rem 0;
     overflow: hidden;
     white-space: nowrap;
   }
+
   .strip-track {
     display: inline-flex; animation: marquee 22s linear infinite;
   }
+
   .strip-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem; font-style: italic;
     color: white; padding-right: 4rem;
   }
+
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 
-  /* ── SOBRE ── */
   .about {
     padding: 7rem 4rem;
     display: grid; grid-template-columns: 1fr 1.2fr;
     gap: 6rem; align-items: center;
     max-width: 1200px; margin: 0 auto;
   }
+
   .about-label {
     font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--red); font-weight: 500; margin-bottom: 1.2rem;
   }
+
   h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.2rem, 3.5vw, 3.5rem);
     font-weight: 300; line-height: 1.15;
     color: var(--navy); margin-bottom: 1.8rem;
   }
+
   h2 em { font-style: italic; color: var(--red); }
+
   .about-text {
     font-size: 1rem; line-height: 1.85;
     color: #4A5568; font-weight: 300; margin-bottom: 1.5rem;
   }
+
   .about-photo { position: relative; }
+
   .about-photo-inner { position: relative; overflow: hidden; }
+
   .about-photo-inner img {
     width: 100%; height: 100%;
     object-fit: cover; object-position: center top; display: block;
   }
+
   .about-photo-inner::after {
     content: '';
     position: absolute; bottom: -2px; right: -2px;
@@ -245,107 +271,141 @@
     border-right: 3px solid var(--red);
     pointer-events: none;
   }
+
   .about-badge {
     position: absolute; bottom: -1.5rem; left: -1.5rem;
     background: var(--navy); color: white;
     padding: 1.2rem 1.5rem; border-radius: 2px; text-align: center;
   }
+
   .badge-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 2.5rem; font-weight: 600;
     display: block; line-height: 1;
   }
+
   .badge-text { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
 
-  /* ── PILARES ── */
   .pillars { background: var(--navy); padding: 6rem 4rem; }
+
   .pillars-inner { max-width: 1200px; margin: 0 auto; }
+
   .pillars-header {
     display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 4rem;
   }
+
   .pillars-header h2 { color: white; max-width: 16ch; }
+
   .pillars-header h2 em { color: var(--red); }
+
   .pillars-header p {
     font-size: 0.9rem; color: rgba(255,255,255,0.5);
     max-width: 30ch; line-height: 1.7;
   }
+
   .pillars-row-top {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; margin-bottom: 1.5px;
   }
+
   .pillars-row-bottom {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px;
   }
+
+  .pillar-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
   .pillar {
     background: rgba(255,255,255,0.04);
     padding: 2.5rem; transition: background 0.3s;
     cursor: default; border-bottom: 3px solid transparent;
+    height: 100%;
   }
+
   .pillar:hover { background: rgba(200,41,58,0.12); border-bottom-color: var(--red); }
+
   .pillar-num {
     font-family: 'Cormorant Garamond', serif;
     font-size: 3rem; font-weight: 300;
     color: rgba(255,255,255,0.1); line-height: 1; margin-bottom: 1rem;
   }
+
   .pillar-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem; color: white;
     font-weight: 400; margin-bottom: 0.8rem;
   }
+
   .pillar-text { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.7; font-weight: 300; }
 
-  /* ── DEPOIMENTO ── */
   .testimonial {
     padding: 7rem 4rem;
     max-width: 900px; margin: 0 auto; text-align: center;
   }
+
   .quote-mark {
     font-family: 'Cormorant Garamond', serif;
     font-size: 8rem; color: var(--red);
     opacity: 0.15; line-height: 0.5;
     margin-bottom: 2rem; display: block;
   }
+
   .testimonial-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(1.5rem, 2.5vw, 2.2rem);
     font-weight: 300; font-style: italic;
     line-height: 1.5; color: var(--navy); margin-bottom: 2rem;
   }
+
   .testimonial-author { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); }
 
-  /* ── CONTEÚDO ── */
   .content-section { background: var(--cream); padding: 6rem 4rem; }
+
   .content-inner { max-width: 1200px; margin: 0 auto; }
+
   .section-header { margin-bottom: 3rem; }
+
   .content-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
   .content-card {
     background: white; border-radius: 2px; overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
   }
+
   .content-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+
   .card-thumb {
     width: 100%; aspect-ratio: 9/10;
     display: flex; align-items: center; justify-content: center; position: relative;
   }
+
   .card-thumb-1 { background: linear-gradient(135deg, var(--navy), #2A3F5F); }
   .card-thumb-2 { background: linear-gradient(135deg, #1A1A2E, var(--navy)); }
   .card-thumb-3 { background: linear-gradient(135deg, var(--navy), #162032); }
+
   .card-platform {
     position: absolute; top: 1rem; left: 1rem;
     background: var(--red); color: white;
     font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
     padding: 0.25rem 0.6rem; border-radius: 2px; font-weight: 500;
   }
+
   .card-icon { font-size: 2rem; opacity: 0.2; color: white; }
+
   .card-body { padding: 1.4rem; }
+
   .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.3; }
+
   .card-meta { font-size: 0.75rem; color: var(--muted); }
 
-  /* ── CTA FINAL ── */
   .cta-final {
     background: var(--dark);
     padding: 7rem 4rem; text-align: center; position: relative; overflow: hidden;
   }
+
   .cta-final::before {
     content: '';
     position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
@@ -353,24 +413,29 @@
     background: radial-gradient(circle, rgba(200,41,58,0.12), transparent 70%);
     pointer-events: none;
   }
+
   .cta-final h2 { color: white; max-width: 20ch; margin: 0 auto 1.5rem; }
+
   .cta-final h2 em { color: var(--red); }
+
   .cta-final p { color: rgba(255,255,255,0.5); max-width: 50ch; margin: 0 auto 2.5rem; line-height: 1.75; }
 
-  /* ── FOOTER ── */
   footer {
     background: var(--navy); padding: 3rem 4rem;
     display: flex; justify-content: space-between; align-items: center;
   }
+
   .footer-logo { font-family: 'Cormorant Garamond', serif; color: white; font-size: 1.1rem; letter-spacing: 0.12em; text-transform: uppercase; }
+
   .footer-logo span { color: var(--red); }
+
   footer p { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
 
-  /* ── ANIMAÇÕES ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
+
   .hero-left > * { animation: fadeUp 0.8s ease forwards; opacity: 0; }
   .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
   .hero-left > *:nth-child(2) { animation-delay: 0.2s; }
@@ -379,72 +444,64 @@
 
   .divider { width: 3rem; height: 2px; background: var(--red); margin-bottom: 1.5rem; }
 
-  /* ── MANIFESTADORA ── */
   .produto {
     padding: 7rem 4rem;
     background: var(--cream);
     overflow: hidden;
   }
+
   .produto-inner {
     max-width: 1200px; margin: 0 auto;
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 6rem; align-items: center;
   }
+
   .produto-label {
     font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--red); font-weight: 500; margin-bottom: 1.2rem;
   }
+
   .produto-divider { width: 3rem; height: 2px; background: var(--red); margin-bottom: 1.5rem; }
+
   .produto h2 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.2rem, 3.5vw, 3.5rem);
     font-weight: 300; line-height: 1.12;
     color: var(--navy); margin-bottom: 1.6rem;
   }
+
   .produto h2 em { font-style: italic; color: var(--red); }
+
   .produto-text {
     font-size: 1rem; line-height: 1.85;
     color: #4A5568; font-weight: 300; margin-bottom: 1.4rem;
   }
+
   .produto-features {
     display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem;
   }
+
   .feature-item {
     display: flex; align-items: flex-start; gap: 0.8rem;
     font-size: 0.9rem; color: #4A5568; font-weight: 300; line-height: 1.5;
   }
+
   .feature-dot {
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--red); flex-shrink: 0; margin-top: 0.45rem;
   }
+
   .produto-actions {
     display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
   }
-  .produto-price { font-size: 0.85rem; color: var(--navy); }
-  .produto-price strong {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 600; color: var(--navy);
-  }
+
   .produto-visual {
     position: relative;
     display: flex; align-items: center; justify-content: center;
   }
+
   .book-mockup { position: relative; width: 280px; }
-  .book-cover {
-    width: 280px; height: 370px;
-    background: var(--navy);
-    border-radius: 3px 10px 10px 3px;
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    justify-content: flex-end; padding: 2.2rem 2rem;
-    box-shadow: -8px 8px 0 rgba(0,0,0,0.2), 12px 24px 50px rgba(0,0,0,0.18);
-  }
-  .book-cover::before {
-    content: '';
-    position: absolute; left: 0; top: 0; bottom: 0; width: 22px;
-    background: rgba(0,0,0,0.25);
-    border-right: 1px solid rgba(255,255,255,0.04);
-  }
+
   .book-badge {
     position: absolute; top: -1.2rem; right: -1.5rem;
     background: var(--red); color: white;
@@ -452,11 +509,9 @@
     display: flex; flex-direction: column;
     align-items: center; justify-content: center; text-align: center;
   }
-  .badge-price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.4rem; font-weight: 600; line-height: 1;
-  }
+
   .badge-sub { font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; }
+
   .book-img {
     width: 280px; height: 370px;
     object-fit: cover; border-radius: 3px 10px 10px 3px;
@@ -464,27 +519,23 @@
     display: block;
   }
 
-  /* ════════════════════════════════════════
-     MOBILE RESPONSIVE — max 768px
-  ════════════════════════════════════════ */
   @media (max-width: 768px) {
-
-    /* Nav */
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
 
-    /* Hero — stacked */
     .hero {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto;
       padding: 7rem 1.5rem 3rem;
       min-height: auto;
     }
+
     .hero::before {
       width: 100%; top: auto; bottom: 0;
       height: 42%;
     }
+
     .hero-left { padding-right: 0; padding-bottom: 2rem; }
     h1 { font-size: clamp(2.4rem, 10vw, 3.2rem); }
     .hero-sub { font-size: 0.95rem; }
@@ -494,88 +545,88 @@
       align-items: center;
       z-index: 1; position: relative;
     }
+
     .hero-photo-frame { max-width: 280px; }
+
     .hero-stat-strip {
       gap: 1rem;
       flex-wrap: wrap;
     }
+
     .stat-num { font-size: 1.8rem; }
     .stat-label { font-size: 0.65rem; }
 
-    /* Faixa */
     .strip-text { font-size: 1rem; }
 
-    /* Sobre — stacked, foto primeiro no mobile */
     .about {
       grid-template-columns: 1fr;
       grid-template-rows: auto auto;
       gap: 3rem;
       padding: 5rem 1.5rem 4rem;
     }
+
     .about-photo { order: -1; margin-bottom: 2rem; }
+
     .about-badge {
       bottom: -1rem; left: -0.5rem;
       padding: 0.9rem 1rem;
     }
+
     .badge-num { font-size: 2rem; }
     .about-photo-inner::after { display: none; }
 
-    /* Manifestadora */
     .produto { padding: 4rem 1.5rem; }
+
     .produto-inner {
       grid-template-columns: 1fr;
       gap: 3rem;
     }
+
     .produto-visual { order: -1; }
     .book-mockup { width: 220px; }
-    .book-cover { width: 220px; height: 290px; }
     .book-img { width: 220px; height: 290px; }
     .book-badge { width: 68px; height: 68px; top: -1rem; right: -1rem; }
-    .badge-price { font-size: 1.2rem; }
 
-    /* Pilares */
     .pillars { padding: 4rem 1.5rem; }
+
     .pillars-header {
       flex-direction: column; align-items: flex-start;
       gap: 1rem; margin-bottom: 2.5rem;
     }
+
     .pillars-header p { max-width: 100%; }
+
     .pillars-row-top,
     .pillars-row-bottom {
       grid-template-columns: 1fr;
       gap: 1.5px;
     }
+
     .pillar { padding: 1.8rem 1.5rem; }
     .pillar-num { font-size: 2rem; }
 
-    /* Depoimento */
     .testimonial { padding: 4rem 1.5rem; }
     .quote-mark { font-size: 5rem; }
 
-    /* Conteúdo */
     .content-section { padding: 4rem 1.5rem; }
+
     .content-grid {
       grid-template-columns: 1fr;
       gap: 1.2rem;
     }
+
     .card-thumb { aspect-ratio: 16/9; }
 
-    /* CTA final */
     .cta-final { padding: 5rem 1.5rem; }
     .cta-final h2 { font-size: 2rem; }
 
-    /* Footer */
     footer {
       flex-direction: column; gap: 1rem; padding: 2rem 1.5rem;
       text-align: center;
     }
   }
 
-  /* ════════════════════════════════════════
-     TABLET — 769px a 1024px
-  ════════════════════════════════════════ */
   @media (min-width: 769px) and (max-width: 1024px) {
-
     nav { padding: 1rem 2.5rem; }
     .nav-toggle { display: none; }
     .nav-links { gap: 1.5rem; }
@@ -585,6 +636,7 @@
       padding: 7rem 2.5rem 4rem;
       gap: 1rem;
     }
+
     .hero::before { width: 50%; }
     .hero-left { padding-right: 2rem; }
     h1 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
@@ -599,9 +651,11 @@
     }
 
     .pillars { padding: 5rem 2.5rem; }
+
     .pillars-row-bottom {
       grid-template-columns: 1fr 1fr;
     }
+
     .pillars-row-bottom .pillar:last-child {
       grid-column: 1 / -1;
     }
@@ -610,7 +664,6 @@
     .content-grid { grid-template-columns: 1fr 1fr; }
     .content-grid .content-card:last-child { grid-column: 1 / -1; }
 
-    /* Manifestadora tablet */
     .produto { padding: 5rem 2.5rem; }
     .produto-inner { gap: 3rem; }
 
@@ -619,42 +672,42 @@
   }
 </style>
 </head>
+
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>S</span>elma Arenales</div>
+  <a href="index.html" class="nav-logo"><span>S</span>elma Arenales</a>
+
   <ul class="nav-links">
     <li><a href="contato.html">Contato</a></li>
     <li><a href="dnabasico-cafe.html" class="nav-cta">Formação</a></li>
   </ul>
+
   <button class="nav-toggle" id="navToggle" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE MENU OVERLAY -->
 <div class="nav-overlay" id="navOverlay">
-  <a href="#sobre" onclick="closeMenu()">Sobre</a>
-  <a href="#temas" onclick="closeMenu()">Temas</a>
-  <a href="#conteudo" onclick="closeMenu()">Conteúdo</a>
-  <a href="#formacao" class="nav-cta-overlay" onclick="closeMenu()">Formação</a>
+  <a href="contato.html" onclick="closeMenu()">Contato</a>
+  <a href="dnabasico-cafe.html" class="nav-cta-overlay" onclick="closeMenu()">Formação</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">ThetaHealing · Autodesenvolvimento</div>
     <h1>Você não precisa<br>de mais informação.<br><br>Precisa de <em>transformação.</em></h1>
     <p class="hero-sub">Desde 2003 estudo evolução pessoal. Há 6 anos ensinando que é possível viver uma vida plena.</p>
     <div class="hero-actions">
-      <a href="#formacao" class="btn-primary">Ver mais</a>
+      <a href="dnabasico-cafe.html" class="btn-primary">Ver formação</a>
     </div>
   </div>
+
   <div class="hero-right">
     <div class="hero-photo-frame">
       <img src="verm_sfundo.png" alt="Selma Arenales">
     </div>
+
     <div class="hero-stat-strip">
       <div class="stat">
         <div class="stat-num">6+</div>
@@ -672,7 +725,6 @@
   </div>
 </section>
 
-<!-- FAIXA ANIMADA -->
 <div class="about-strip">
   <div class="strip-track">
     <span class="strip-text">ThetaHealing &nbsp;·&nbsp; Formação de Terapeutas &nbsp;·&nbsp; Autoconhecimento &nbsp;·&nbsp; Transformação &nbsp;·&nbsp; Manifestações &nbsp;·&nbsp; Cura do Bebê no Ventre &nbsp;·&nbsp; Mudança de Crenças &nbsp;·&nbsp; Evolução Pessoal &nbsp;·&nbsp;</span>
@@ -680,7 +732,6 @@
   </div>
 </div>
 
-<!-- SOBRE -->
 <section class="about" id="sobre">
   <div class="about-text-col">
     <div class="about-label">Quem é a Selma</div>
@@ -688,6 +739,7 @@
     <p class="about-text">Depois de anos tentando mudar e fazer melhor sem que nada, de fato, mudasse. Aprendi que a gente repete os mesmos padrões. No trabalho, nos relacionamentos, na vida. Porque a crença que está por baixo continuava a <em> mesma</em>!</p>
     <p class="about-text">O ThetaHealing foi o que faltava! A ferramenta que mudou meus padrões e meu caminho! E a que hoje, ajudo mulheres a viver uma vida plena! <br>Eu vivo o que ensino! <br>E sua transformação está mais próxima do que você imagina!</p>
   </div>
+
   <div class="about-photo">
     <div class="about-photo-inner">
       <img src="selma_sfundo.png" alt="Foto de Selma Arenales">
@@ -699,38 +751,42 @@
   </div>
 </section>
 
-<!-- PILARES -->
 <section class="pillars" id="temas">
   <div class="pillars-inner">
     <div class="pillars-header">
       <h2>Como eu <br>ajudo a <em>outras mulheres?</em></h2>
       <p>Tudo que eu ensino, que eu falo, eu vivi. Cada caminho, eu mesma andei!</p>
     </div>
+
     <div class="pillars-row-top">
-    <a href="/dnabasico-cafe.html" style="text-decoration: none; color: inherit; display: block;">
-      <div class="pillar">        
-        <div class="pillar-num id="curso">01</div>
-        <div class="pillar-title">Formações</div>
-        <p class="pillar-text">Formação nos 5 principais cursos do ThetaHealing. Para quem está pronta para transformar a própria vida — e para de preder o tempo da SUA vida!</p>
-      </div>
-    </a>
+      <a href="dnabasico-cafe.html" class="pillar-link">
+        <div class="pillar">
+          <div class="pillar-num" id="curso">01</div>
+          <div class="pillar-title">Formações</div>
+          <p class="pillar-text">Formação nos 5 principais cursos do ThetaHealing. Para quem está pronta para transformar a própria vida — e parar de perder o tempo da SUA vida!</p>
+        </div>
+      </a>
+
       <div class="pillar">
         <div class="pillar-num">02</div>
         <div class="pillar-title">Imersões</div>
         <p class="pillar-text">Experiências intensivas de um ou dois dias, que combina: práticas terapêuticas, conexão humana de verdade em uma tarde cheia de risadas! <br>Para quem precisa se desconectar para se reencontrar.</p>
       </div>
     </div>
+
     <div class="pillars-row-bottom">
       <div class="pillar">
         <div class="pillar-num" id="cct">03</div>
         <div class="pillar-title">Café com Terapia</div>
         <p class="pillar-text">Encontro presencial e gratuito. Com um bom café, uma experiência onde cada pessoa sai com novas risadas, novos rumos e algumas respostas!</p>
       </div>
+
       <div class="pillar">
         <div class="pillar-num">04</div>
         <div class="pillar-title">Produtos Digitais</div>
-        <p class="pillar-text">Materiais interativos de acesso imediato para aplicar onde estiver. Praticidade em primeiro lugar: o caderno se adpata á VOCÊ, não ao contrário! Cada um com seu foco e sua direção. <br>Você não precisa saber todas as respostas, no seu ritmo!</p>
+        <p class="pillar-text">Materiais interativos de acesso imediato para aplicar onde estiver. Praticidade em primeiro lugar: o caderno se adapta à VOCÊ, não ao contrário! Cada um com seu foco e sua direção. <br>Você não precisa saber todas as respostas, no seu ritmo!</p>
       </div>
+
       <div class="pillar">
         <div class="pillar-num">05</div>
         <div class="pillar-title">Encontros Online</div>
@@ -740,24 +796,26 @@
   </div>
 </section>
 
-<!-- MANIFESTADORA -->
 <section class="produto" id="manifestadora">
   <div class="produto-inner">
     <div class="produto-text-col">
       <div class="produto-label">Manifestadora</div>
       <div class="produto-divider"></div>
       <h2>Do Bloqueio<br>ao <em>Resultado</em></h2>
-      <p class="produto-text">Sabe aquela lista de manifestação que ta guardada desde 2020? <em>Chegou sua</em> vez de estourar o espumante e riscar cada item dessa lista! </p>
+      <p class="produto-text">Sabe aquela lista de manifestação que tá guardada desde 2020? <em>Chegou sua</em> vez de estourar o espumante e riscar cada item dessa lista!</p>
+
       <div class="produto-features">
         <div class="feature-item"><div class="feature-dot"></div>Ho'oponopono para limpar crenças genéticas</div>
         <div class="feature-item"><div class="feature-dot"></div>Técnica 3×6×9 para reprogramar em 21 dias</div>
         <div class="feature-item"><div class="feature-dot"></div>Vision Board com Feng Shui para direcionar e ampliar</div>
-        <div class="feature-item"><div class="feature-dot"></div>Escrita, práticas de gratidão e desbloquios energética</div>
+        <div class="feature-item"><div class="feature-dot"></div>Escrita, práticas de gratidão e desbloqueios energéticos</div>
       </div>
+
       <div class="produto-actions">
         <a href="manifestadora.html" class="btn-primary">Conhecer a Manifestadora</a>
       </div>
     </div>
+
     <div class="produto-visual">
       <div class="book-mockup">
         <img src="manif_quad.png" alt="Caderno Manifestadora" class="book-img">
@@ -769,20 +827,19 @@
   </div>
 </section>
 
-<!-- DEPOIMENTO -->
 <section class="testimonial">
   <span class="quote-mark">"</span>
-  <p class="testimonial-text">E o carro veio! sabe aquele Gol que tava no visionboard desde 2023??!!!! GRATIDAAAAO 💖💖 E a Lu**** B****** assinou!!! Vou refazer a manifestadora do zerooo!!! </p>
+  <p class="testimonial-text">E o carro veio! sabe aquele Gol que tava no visionboard desde 2023??!!!! GRATIDAAAAO 💖💖 E a Lu**** B****** assinou!!! Vou refazer a manifestadora do zerooo!!!</p>
   <p class="testimonial-author">Juliana R. — Manifestadora, São Paulo</p>
 </section>
 
-<!-- CONTEÚDO -->
 <section class="content-section" id="conteudo">
   <div class="content-inner">
     <div class="section-header">
       <div class="about-label">Conteúdo gratuito disponível</div>
       <h2>Antes de qualquer coisa,<br><em>escuta isso aqui!</em></h2>
     </div>
+
     <div class="content-grid">
       <div class="content-card">
         <div class="card-thumb card-thumb-1">
@@ -790,10 +847,11 @@
           <span class="card-icon">▶</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Música para Abrir caminhos</div>
+          <div class="card-title">Música para abrir caminhos</div>
           <div class="card-meta">Vídeo · 17 min</div>
         </div>
       </div>
+
       <div class="content-card">
         <div class="card-thumb card-thumb-2">
           <span class="card-platform">Instagram</span>
@@ -804,28 +862,27 @@
           <div class="card-meta">Reel · 2 min</div>
         </div>
       </div>
+
       <div class="content-card">
         <div class="card-thumb card-thumb-3">
           <span class="card-platform">Instagram</span>
           <span class="card-icon">♦</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Eu começei a fazer escolhas conscientes</div>
-          <div class="card-meta">Reel · 2min</div>
+          <div class="card-title">Eu comecei a fazer escolhas conscientes</div>
+          <div class="card-meta">Reel · 2 min</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
 <section class="cta-final" id="formacao">
-  <h2>Você é quem você <br>você <em>nasceu para ser?</em></h2>
+  <h2>Você é quem você <br><em>nasceu para ser?</em></h2>
   <p>Foi no isolamento que entendi o quanto a minha <em>própria conexão</em> era o que me sustentava. E percebi que estava perdendo tempo da minha vida, vivendo as expectativas dos outros.<br><br>Hoje, ajudo mulheres viverem essa transformação!<br><br><em>Sem justificativas, performar ou explicar. Pra ninguém</em>.</p>
-  <a href="#curso" class="btn-primary">Onde começar?!</a>
+  <a href="dnabasico-cafe.html" class="btn-primary">Onde começar?!</a>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span>S</span>elma Arenales</div>
   <p>© 2026 · ThetaHealing® é marca registrada da THInk, Inc.</p>
