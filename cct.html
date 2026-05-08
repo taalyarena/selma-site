@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Café com Terapia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --crimson: #8B1A2E;
+  --rose: #E8294A;
+  --pink: #F07090;
+  --blush: #F5A8BC;
+  --ice: #D4F0F5;
+  --navy: #1E2D45;
+  --cream: #FDF8F5;
+  --off-white: #FAF6F3;
+  --dark: #0F1820;
+  --muted: #8A8F96;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--dark);
+  overflow-x: hidden;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+nav {
+  padding: 1.1rem 1.4rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(253,248,245,0.95);
+  border-bottom: 1px solid rgba(30,45,69,0.08);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--navy); text-decoration: none;
+}
+.nav-logo span { color: var(--rose); }
+
+/* HERO */
+.hero {
+  background: var(--crimson);
+  padding: 3.5rem 1.4rem 3rem;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(240,112,144,0.15);
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -40px; left: -40px;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: rgba(212,240,245,0.1);
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--blush); font-weight: 500;
+  margin-bottom: 1.8rem;
+}
+.logo-area {
+  margin-bottom: 1.8rem;
+  position: relative; z-index: 1;
+}
+.logo-img {
+  width: 220px; height: auto;
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+}
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-style: italic; font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.5; max-width: 32ch; margin: 0 auto 2rem;
+  position: relative; z-index: 1;
+}
+.hero-sub em { color: var(--blush); font-style: italic; }
+.btn-hero {
+  display: inline-block;
+  background: var(--rose); color: white;
+  padding: 0.9rem 2rem; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  position: relative; z-index: 1;
+}
+.btn-hero:hover { background: var(--navy); transform: translateY(-2px); }
+
+/* SOBRE O EVENTO */
+.evento {
+  padding: 3rem 1.4rem;
+  background: var(--cream);
+}
+.section-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rose); font-weight: 500; margin-bottom: 0.7rem;
+}
+.divider { width: 2rem; height: 2px; background: var(--rose); margin-bottom: 1.4rem; }
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; line-height: 1.12;
+  color: var(--navy); margin-bottom: 1.2rem;
+}
+h2 em { font-style: italic; color: var(--rose); }
+.body-text {
+  font-size: 0.95rem; line-height: 1.8;
+  color: #4A5568; font-weight: 300;
+  margin-bottom: 1rem;
+}
+.highlight {
+  background: white;
+  border-left: 3px solid var(--pink);
+  padding: 1rem 1.2rem; margin-top: 1.4rem;
+  border-radius: 0;
+}
+.highlight p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; font-style: italic;
+  color: var(--navy); line-height: 1.5;
+}
+
+/* O QUE ACONTECE */
+.dinamica {
+  padding: 3rem 1.4rem;
+  background: var(--off-white);
+}
+.dinamica-items { display: flex; flex-direction: column; gap: 1px; margin-top: 1.4rem; }
+.dinamica-item {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(30,45,69,0.07);
+}
+.dinamica-item:first-child { border-top: 1px solid rgba(30,45,69,0.07); }
+.dinamica-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300;
+  color: var(--blush); line-height: 1; flex-shrink: 0;
+  width: 2rem; text-align: right;
+}
+.dinamica-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: var(--navy); margin-bottom: 0.2rem;
+}
+.dinamica-text { font-size: 0.83rem; color: #4A5568; line-height: 1.6; font-weight: 300; }
+
+/* SELMA */
+.selma {
+  padding: 3rem 1.4rem;
+  background: var(--crimson);
+}
+.selma-label { color: rgba(240,112,144,0.8); }
+.selma h2 { color: white; }
+.selma h2 em { color: var(--pink); }
+.selma .body-text { color: rgba(255,255,255,0.5); }
+.selma .highlight {
+  background: rgba(255,255,255,0.05);
+  border-left-color: var(--pink);
+}
+.selma .highlight p { color: var(--off-white); }
+.stats-row {
+  display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1px;
+  background: rgba(255,255,255,0.06);
+  margin-top: 2rem;
+}
+.stat {
+  padding: 1.2rem; background: rgba(255,255,255,0.03); text-align: center;
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 600;
+  color: white; display: block; line-height: 1;
+}
+.stat-label {
+  font-size: 0.65rem; color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-top: 0.3rem; line-height: 1.3;
+}
+
+/* CTA */
+.cta {
+  padding: 3.5rem 1.4rem;
+  background: var(--crimson);
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.cta::before {
+  content: '';
+  position: absolute; top: -80px; left: 50%; transform: translateX(-50%);
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(240,112,144,0.1);
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta h2 { color: white; font-size: 1.9rem; margin-bottom: 0.8rem; }
+.cta h2 em { color: var(--blush); }
+.cta p { font-size: 0.88rem; color: rgba(255,255,255,0.5); line-height: 1.75; margin-bottom: 2rem; max-width: 36ch; margin-left: auto; margin-right: auto; }
+.btn-cta {
+  display: block; width: 100%; text-align: center;
+  background: white; color: var(--crimson);
+  padding: 1rem; border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 2rem;
+}
+.btn-cta:hover { background: var(--blush); transform: translateY(-2px); }
+.cta-note { font-size: 0.72rem; color: rgba(255,255,255,0.3); letter-spacing: 0.04em; }
+
+footer {
+  background: var(--dark);
+  padding: 2rem 1.4rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  color: white; font-size: 0.95rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.footer-logo span { color: var(--rose); }
+footer p { font-size: 0.68rem; color: rgba(255,255,255,0.25); }
+
+  :root {
+  --rose: #E8294A;
+  --pink: #F07090;
+  --blush: #F5A8BC;
+  --navy: #1E2D45;
+  --off-white: #FAF6F3;
+}
+* { margin: 0; padding: 0; box-sizing: border-abox; }
+body { font-family: 'DM Sans', sans-serif; background: var(--off-white); }
+
+.dinamica { padding: 2rem 1.4rem; background: var(--off-white);}
+.section-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rose); font-weight: 500; margin-bottom: 0.7rem;
+}
+.divider { width: 2rem; height: 2px; background: var(--rose); margin-bottom: 2rem; }
+
+.porque-items { display: flex; flex-direction: column; gap: 2rem; }
+.porque-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.porque-ancora {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 300; line-height: 1;
+  color: var(--blush);
+  letter-spacing: -0.01em;
+}
+.porque-ancora em { font-style: italic; color: var(--pink); }
+.porque-text {
+  font-size: 0.9rem; line-height: 1.8;
+  color: #4A5568; font-weight: 300;
+  border-left: 2px solid rgba(245,168,188,0.3);
+  padding-left: 1rem;
+}
+.porque-text em { color: var(--navy); font-style: italic; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); }
+
+.evento { padding: 3rem 1.4rem; background: var(--cream); }
+  
+.section-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--rose); font-weight: 500; margin-bottom: 0.7rem;
+}
+.divider { width: 2rem; height: 2px; background: var(--rose); margin-bottom: 1.8rem; }
+
+.evento h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300; line-height: 1.12;
+  color: var(--navy); margin-bottom: 2rem;
+}
+.evento h2 em { font-style: italic; color: var(--rose); }
+
+.pergunta {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; font-style: italic; font-weight: 300;
+  color: var(--navy); line-height: 1.6;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(30,45,69,0.08);
+}
+.pergunta em { color: var(--rose); font-style: italic; }
+
+.pill-row {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.pill {
+  background: white;
+  border: 1px solid rgba(240,112,144,0.3);
+  border-radius: 100px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem; color: #4A5568;
+  font-weight: 300;
+}
+.pill em { color: var(--rose); font-style: italic; }
+
+.contraste {
+  background: white;
+  padding: 1.4rem;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+.contraste-row {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(30,45,69,0.06);
+}
+.contraste-row:last-child { border-bottom: none; }
+.contraste-lado {
+  flex: 1; font-size: 0.83rem; line-height: 1.6; font-weight: 300;
+}
+.contraste-lado.antes { color: #9AA0A8; text-decoration: line-through; }
+.contraste-lado.depois { color: var(--navy); font-weight: 400; }
+.contraste-sep {
+  font-size: 0.75rem; color: var(--blush);
+  padding-top: 0.2rem; flex-shrink: 0;
+}
+
+.highlight {
+  border-left: 3px solid var(--pink);
+  padding: 1rem 1.2rem;
+  background: white;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+  
+.highlight p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-style: italic;
+  color: var(--navy); line-height: 1.6;
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span>S</span>elma Arenales</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Evento presencial · Gratuito</div>
+  <div class="logo-area">
+    <img src="logo_cct.png" alt="Café com Terapia" class="logo-img">
+  </div>
+  <a href="#avise" class="btn-hero">Próxima data</a>
+</section>
+
+<section class="evento">
+  <div class="section-label">O que é</div>
+  <div class="divider"></div>
+  <h2>Uma <em>experiência.</em><br>Um café para mulheres.</h2>
+
+  <p class="pergunta">Você lembra quando as conversas duravam horas e você nem percebia? Quando você voltava com um contato novo, uma ideia diferente — com aquela sensação boa de ter <em>vivido o dia</em>, não apenas as responsabilidades?</p>
+
+  <div class="pill-row">
+    <div class="pill">Presencial</div>
+    <div class="pill">Gratuito</div>
+    <div class="pill">Café de verdade</div>
+    <div class="pill"><em>Gente legal</em></div>
+  </div>
+
+  <div class="contraste">
+    <div class="contraste-row">
+      <div class="contraste-lado antes">Conversa virou notificação</div>
+      <div class="contraste-sep">→</div>
+      <div class="contraste-lado depois">Conversa de verdade</div>
+    </div>
+    <div class="contraste-row">
+      <div class="contraste-lado antes">Risada virou 'rsrsrs'</div>
+      <div class="contraste-sep">→</div>
+      <div class="contraste-lado depois">Risada que vem do fundo</div>
+    </div>
+    <div class="contraste-row">
+      <div class="contraste-lado antes">Luz azul de tela</div>
+      <div class="contraste-sep">→</div>
+      <div class="contraste-lado depois">Olho no olho</div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <p>"Todo mundo fala sobre os amigos de infância, mas ninguém fala sobre as amigas que você encontra enquanto tenta descobrir como sobreviver no mundo adulto."</p>
+  </div>
+
+</section>
+
+<section class="dinamica">
+  <div class="section-label">Porquê</div>
+  <div class="divider"></div>
+  <div class="porque-items">
+
+    <div class="porque-item">
+      <div class="porque-ancora">O <em>afastamento</em></div>
+      <p class="porque-text">A quarentena fez a gente <em>perder</em> o hábito de sair, conversar e aproveitar. <em>De verdade.</em></p>
+    </div>
+
+    <div class="porque-item">
+      <div class="porque-ancora">A <em>falta</em></div>
+      <p class="porque-text">Eu senti essa falta na pele. Não precisar lembrar de 1001 problemas sendo que eu só queria <em>responder minha amiga.</em></p>
+    </div>
+
+    <div class="porque-item">
+      <div class="porque-ancora">O <em>Café</em></div>
+      <p class="porque-text">Nasceu disso. Da necessidade de trazer de volta aquela conversa que durava horas e a gente nem percebia. <em>Com café de verdade e gente de verdade.</em></p>
+    </div>
+  </div>
+</section>
+
+  
+  
+<section class="selma">
+  <div class="section-label selma-label">Sobre mim</div>
+  <div class="divider" style="background: var(--pink);"></div>
+  <h2>Selma <em>Arenales</em></h2>
+  <p class="body-text">Sou Selma Arenales, terapeuta e professora. <br>O Café com Terapia surgiu dessa perda de conexão humana desde 2020! Eu trouxe para Ribeirão Preto, uma experiência sensorial que já é sucesso no mundo inteiro...</p>
+  <p class="body-text">E sim, tivemos uma edição online (já temos a ferramenta, faz bem usar quando convém!)</p>
+  <div class="highlight">
+    <p>"Entendi o que dizem que o ser humano é um ser social, que precisa de conexões!"</p>
+  </div>
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-num">20+</span>
+      <div class="stat-label">anos em conexões</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">6+</span>
+      <div class="stat-label">ensinando</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="avise">
+  <div class="cta-inner">
+    <div class="section-label" style="color: rgba(245,168,188,0.8); margin-bottom: 1rem;">Próxima edição</div>
+    <h2>Quero ir<br><em>nesse encontro</em>.</h2>
+    <p>Deixa seu nome e e-mail aqui. Seu convite <em>exclusivo chegará em breve</em>.</p>
+    <a href="https://forms.gle/dyJ3kPizRYThcHzt9" target="_blank" class="btn-cta">Deixar meu Nome Reservado</a>
+    <p class="cta-note">Gratuito · Presencial · Humano</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>S</span>elma Arenales</div>
+  <p>© 2026 · ThetaHealing®</p>
+</footer>
+
+</body>
+</html>
