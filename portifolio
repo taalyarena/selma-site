@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investimento no seu processo de transformação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcf7f2;
+            --text-main: #3a2e2a;
+            --text-muted: #7a6b66;
+            --accent-terracotta: #a85842;
+            --accent-terracotta-light: #c97e66;
+            --accent-beige: #f3e8dd;
+            --accent-beige-dark: #e8dacb;
+            --border-color: #e8dacb;
+            --card-bg: #ffffff;
+            --highlight-bg: #f5e6d8;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 24px;
+            background-color: #fff;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-left strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .top-bar-left a {
+            color: #4a7c9d;
+            text-decoration: none;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            padding: 6px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background: #fff;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .btn-solid {
+            padding: 6px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #5a7d9a;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tagline-top {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-terracotta);
+            margin-bottom: 20px;
+        }
+
+        .tagline-top::before,
+        .tagline-top::after {
+            content: '';
+            height: 1px;
+            width: 40px;
+            background-color: var(--accent-terracotta-light);
+        }
+
+        .icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .icon-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .main-title {
+            font-family: var(--font-serif);
+            font-size: 42px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .main-title em {
+            color: var(--accent-terracotta);
+            font-style: italic;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Hero Image */
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 60px 40px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+            color: #fff;
+        }
+
+        .hero-tags {
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .hero-tags span {
+            margin-right: 15px;
+        }
+
+        .hero-quote {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card.highlight {
+            border: 1px solid var(--accent-terracotta-light);
+            position: relative;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-tag {
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-terracotta);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.2;
+            color: var(--text-main);
+        }
+
+        .card-price-badge {
+            background: var(--accent-terracotta);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .card-price-badge.light {
+            background: var(--accent-beige);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .card-note strong {
+            color: var(--text-main);
+        }
+
+        /* Group Card Specifics */
+        .group-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .group-option {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .group-option-title {
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-terracotta);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .group-option-price {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .group-option-desc {
+            font-size: 10px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* Highlight Card Specifics */
+        .highlight-header {
+            background: var(--accent-terracotta);
+            color: #fff;
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px;
+            font-weight: 600;
+        }
+
+        .highlight-price-badge {
+            background: #d4b895;
+            color: #3a2e2a;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .includes-box {
+            background: var(--bg-color);
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .includes-title {
+            font-size: 9px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent-terracotta);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .includes-list {
+            list-style: none;
+            font-size: 12px;
+            color: var(--text-main);
+        }
+
+        .includes-list li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .includes-list li::before {
+            content: '✦';
+            color: var(--accent-terracotta-light);
+            font-size: 10px;
+            margin-top: 2px;
+        }
+
+        .highlight-footer-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        /* Divider */
+        .divider-icon {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent-terracotta-light);
+            font-size: 20px;
+        }
+
+        /* Bottom Section */
+        .bottom-section {
+            background: #fff;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .bottom-tagline {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-terracotta);
+            margin-bottom: 15px;
+        }
+
+        .bottom-title {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .bottom-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .bottom-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 120px;
+        }
+
+        .bottom-card-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .bottom-card-icon.pink { background: #fce8e8; color: #d17a7a; }
+        .bottom-card-icon.terracotta { background: #f5e0d8; color: #b56a52; }
+        .bottom-card-icon.brown { background: #ebdcd2; color: #8c6b5a; }
+
+        .bottom-card-title {
+            font-family: var(--font-serif);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .bottom-card-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .bottom-quote {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-main);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.5;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .quote-star {
+            color: #d4b895;
+            font-size: 12px;
+            display: block;
+            margin: 15px 0;
+        }
+
+        .final-cta {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .final-cta-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .final-cta-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .cards-section {
+                grid-template-columns: 1fr;
+            }
+            .bottom-cards {
+                grid-template-columns: 1fr;
+            }
+            .main-title {
+                font-size: 32px;
+            }
+            .hero-quote {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <div class="tagline-top">UM ESPAÇO PARA O SEU PROCESSO</div>
+            <div class="icons-row">
+                <div class="icon-circle" style="color: #d17a7a;">✿</div>
+                <div class="icon-circle" style="color: #b56a52;">✦</div>
+                <div class="icon-circle" style="color: #d17a7a;">❀</div>
+            </div>
+            <h1 class="main-title">Investimento no seu<br><em>processo de transformação</em></h1>
+            <p class="subtitle">Escolha o formato que mais ressoa com o seu momento.</p>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image-container">
+            <!-- Placeholder for the hero image -->
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=1000&auto=format&fit=crop" alt="caminho natureza" style="height: 300px; object-fit: cover; filter: sepia(0.3) brightness(0.9);">
+            <div class="hero-overlay">
+                <div class="hero-tags">
+                    <span>CUIDADO</span>
+                    <span>PRESENÇA</span>
+                    <span>CONTINUIDADE</span>
+                </div>
+                <div class="hero-quote">Um caminho pode começar com um único encontro — ou se aprofundar com o tempo.</div>
+            </div>
+        </div>
+
+        <div class="divider-icon">❀</div>
+
+        <!-- Cards Section -->
+        <div class="cards-section">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src= "/images/avulsa.jpg" alt="Sessão Avulsa" class="card-image" style="object-position: center 20%;">
+                <div class="card-content">
+                    <div class="card-tag">FORMATO 01 · INDIVIDUAL</div>
+                    <div class="card-title-row">
+                        <h3 class="card-title">Sessão<br>Avulsa</h3>
+                        <span class="card-price-badge">R$ 530</span>
+                    </div>
+                    <p class="card-desc">Atendimento individual, direcionado à questão que você deseja trabalhar naquele momento. Ideal para um olhar pontual e profundo.</p>
+                    <div class="card-note">
+                        <strong>Para quem é:</strong> para quem deseja um cuidado pontual, com foco em uma questão específica.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src= "/images/grupo.jpg" alt="Constelação em Grupo" class="card-image">
+                <div class="card-content">
+                    <div class="card-tag">FORMATO 02 · COLETIVO</div>
+                    <div class="card-title-row">
+                        <h3 class="card-title">Constelação em<br>Grupo</h3>
+                    </div>
+                    <p class="card-desc">Duas formas de participar do mesmo campo, cada uma com a sua experiência.</p>
+                    
+                    <div class="group-options">
+                        <div class="group-option">
+                            <div class="group-option-title">COMO CONSTELADA</div>
+                            <div class="group-option-price">R$ 350</div>
+                            <div class="group-option-desc">Você realiza sua própria constelação, trabalhando uma questão pessoal.</div>
+                        </div>
+                        <div class="group-option">
+                            <div class="group-option-title">COMO REPRESENTANTE</div>
+                            <div class="group-option-price">R$ 67</div>
+                            <div class="group-option-desc">Você participa da constelação de outra pessoa, representando elementos do campo sistêmico e vivenciando aprendizados.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 (Highlight) -->
+            <div class="card highlight">
+                <div class="highlight-header">✦ MAIS COMPLETO · 4 SEMANAS ✦</div>
+                <img src="/images/pacote.jpg" alt="Pacote Terapêutico" class="card-image" style="height: 140px;">
+                <div class="card-content" style="padding-top: 20px;">
+                    <div class="card-tag">FORMATO 03 · PROCESSO CONTÍNUO</div>
+                    <div class="card-title-row">
+                        <h3 class="card-title">Pacote<br>Terapêutico</h3>
+                        <span class="highlight-price-badge">R$ 1.400</span>
+                    </div>
+                    <p class="card-desc">Processo de 4 semanas, com 1 encontro por semana — <strong>R$ 350 por sessão.</strong></p>
+                    
+                    <div class="includes-box">
+                        <div class="includes-title">O QUE O PACOTE INCLUI</div>
+                        <ul class="includes-list">
+                            <li>Constelação Sistêmica + ThetaHealing, conforme a necessidade</li>
+                            <li>Acompanhamento semanal</li>
+                            <li>Roda de cura energética</li>
+                            <li>+ aprox. 1h de trabalho terapêutico dedicado por semana, fora do horário de atendimento</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-footer-note">
+                        Um acompanhamento mais completo, com continuidade e diferentes recursos ao longo das quatro semanas.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <div class="bottom-tagline">PARA SENTIR A DIFERENÇA</div>
+            <h2 class="bottom-title">Cada formato oferece uma forma de<br>cuidado</h2>
+            
+            <div class="bottom-cards">
+                <div class="bottom-card">
+                    <div class="bottom-card-icon pink">✿</div>
+                    <div class="bottom-card-title">Avulsa</div>
+                    <div class="bottom-card-desc">Pontual</div>
+                </div>
+                <div class="bottom-card">
+                    <div class="bottom-card-icon terracotta">❀</div>
+                    <div class="bottom-card-title">Grupo</div>
+                    <div class="bottom-card-desc">Vivência coletiva</div>
+                </div>
+                <div class="bottom-card">
+                    <div class="bottom-card-icon brown">✦</div>
+                    <div class="bottom-card-title">Pacote</div>
+                    <div class="bottom-card-desc">Profundidade e continuidade</div>
+                </div>
+            </div>
+
+            <div class="bottom-quote">
+                <span class="quote-star">✦</span>
+                “A diferença está na profundidade e na continuidade do processo. Não é apenas uma sessão, mas um acompanhamento dedicado à sua transformação.”
+                <span class="quote-star">✦</span>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="final-cta">
+            <div class="divider-icon" style="margin: 20px 0;">❀</div>
+            <h2 class="final-cta-title">Escolha com o coração o seu próximo passo</h2>
+            <p class="final-cta-sub">Com carinho, para o seu momento.</p>
+        </div>
+
+    </div>
+</body>
+</html>
